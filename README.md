@@ -10,7 +10,8 @@ gifでお手軽VJ
 ローカルで動作します。
 
 1.zipファイルをダウンロードする。  
-2.index.htmlをchromeで開く。
+2.index.htmlをchromeで開く。  
+3.commond + shift + F　でchrome全画面表示にする。
 
 ###GIFのアサイン方法
 1.解答したファイルの/gif/フォルダの中にGIFを入れる。（まず「0」のフォルダに入れる）  
