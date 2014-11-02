@@ -2,17 +2,39 @@ body{
 	background: #000;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
-
-#player{
+.player{
+	width: 100%;
+	/*background-image: url(../../gif/0/c.gif);*/
+	height: 100%;
+}
+.player .layer{
+	position: absolute;
+	top:0;
+	left:0;
 	width: 100%;
 	height: 100%;
-	/*background-image: url(../../gif/0/d.gif);*/
-	transition: all 0.2s ease-out;
+	
 	background-image: url(../images/common/smoke.gif);
-	/*background-repeat : no-repeat;*/
-	background-repeat : repeat;
 	background-position: center center;
-	/*background: url(../images/common/smoke.gif) center center;*/
-	/*background-size:contain;*/
+	
+
 }
+
+.player .layer.F1{
+	background-size:contain;
+	background-repeat : no-repeat;
+}
+.player .layer.F2{
+	background-size:contain;
+	background-repeat : repeat;
+	transition: opacity 4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	-webkit-animation: smoke 8s cubic-bezier(0.250, 0.250, 0.750, 0.750);
+}
+@-webkit-keyframes smoke {
+  0%  {background-size:40% auto}
+  100%  {background-size:100% auto}
+}
+
+

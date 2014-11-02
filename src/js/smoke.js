@@ -1,4 +1,4 @@
-
+var directory = '0';   
 
 
 (function(window, $) {
@@ -15,7 +15,7 @@
     G.setHeight =function()
     {
         widnwoHeight = $(window).height();
-        $('#player').css({height:widnwoHeight});
+        $('.player').css({height:widnwoHeight});
     };
 
 
