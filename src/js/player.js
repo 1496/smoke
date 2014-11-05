@@ -1,25 +1,21 @@
 (function(window, $) {
     var G = {};
+    var idx = '0';
     var $player = null;
     var $layer = null;
     var pass = 'gif/';
     var effectClass = 'F1';
+    var image = "";
+    var keyArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
     G.init = function()
     {
         $player = $('.player');
     };
 
-    G.changeImage =function(type)
+    G.makeImagePass =function(type)
     {
-        var $target = $('<div class="layer '+ effectClass +'"></div>');
-        $target.css({'background-image':'url('+pass + directory + '/' + type + '.gif' + ')'});
-
-        $player.children(0).css({opacity:0}).animate({top:1},4000,function(){
-            $(this).remove();
-        });
-
-        $player.prepend($target);
+        image = pass + directory + '/' + type + '.gif';
     };
 
 
@@ -32,58 +28,98 @@
 effectsの設定
 =================================*/
 
-G.effects = {
+G.modeSwich = {
     init:function()
     {
         log('ok');
     },
-    F1:function()
+    F1:function(type)
     {
         //ノーマルエフェクト
-        effectClass = 'F1';
+        G.makeImagePass(type);
+        idx++;
+        var $target = $('<div class="layer F1"></div>');
+        $target.css({'background-image':'url(' + image + '?'+ idx+')'});
+
+        $player.children(0).remove();
+        $player.append($target);
     },
-    F2:function()
+    F2:function(type)
     {
-        //smoke effect
-        effectClass = 'F2';
+        //smoke
+        G.makeImagePass(type);
+
+        var $target = $('<div class="layer F2"></div>');
+        $target.css({'background-image':'url(' + image + ')'});
+
+        $player.children(0).css({opacity:0}).animate({top:1},4000,function(){
+            $(this).remove();
+        });
+
+        $player.prepend($target);
+
     },
-    F3:function()
+    F3:function(type)
     {
-        log('F3');
+        //refrect-smiple
+        G.makeImagePass(type);
+        var $target = $('<div class="layer F3"></div>');
+        $target.css({'background-image':'url(' + image + ')'});
+
+        $player.append($target);
+        $('.layer:first').remove();
+
     },
-    F4:function()
+    F4:function(type)
     {
-        log('F4');
+        //refrect-slide
+        G.makeImagePass(type);
+        var $target = $('<div class="layer F4"></div>');
+
+        $target.css({'background-image':'url(' + image + ')'});
+        setTimeout(function(){
+            $target.css({width:'50%','margin-left': '0%'});
+        },50);
+
+        setTimeout(function(){
+            $('.layer:first').animate({top:1},0,function(){
+                $(this).remove();
+                log();
+            });
+        },1000)
+
+
+        $player.append($target);
     },
-    F5:function()
+    F5:function(type)
     {
         log('F5');
     },
-    F6:function()
+    F6:function(type)
     {
         log('F6');
     },
-    F7:function()
+    F7:function(type)
     {
         log('F7');
     },
-    F8:function()
+    F8:function(type)
     {
         log('F8');
     },
-    F9:function()
+    F9:function(type)
     {
         log('F9');
     },
-    F10:function()
+    F10:function(type)
     {
         log('F10');
     },
-    F11:function()
+    F11:function(type)
     {
         log('F11');
     },
-    F12:function()
+    F12:function(type)
     {
         log('F12');
     }

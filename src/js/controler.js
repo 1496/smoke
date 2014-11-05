@@ -40,7 +40,8 @@
         //アルファベット
         if(key.match(/[^0-9]/g) != null && key.length <= 1)
         {
-            PLAYER.changeImage(key);
+            // PLAYER.changeImage(key);
+            PLAYER.modeSwich[mode](key);
         }
         //数字
         else if(key.match(/[^0-9]/g) == null)
@@ -50,7 +51,9 @@
         //ファンクションキー
         else
         {
-            PLAYER.effects[key]();
+
+            // PLAYER.effects[key]();
+            mode = key;
         }
         
     };

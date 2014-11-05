@@ -1,4 +1,5 @@
-var directory = '0';   
+var directory = '0';  
+var mode = 'F1'; 
 
 
 (function(window, $) {
