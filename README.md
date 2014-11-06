@@ -31,7 +31,7 @@ F1 --- ノーマル
 F2 --- smokeモード  
 F3 --- reflectモード  
 F4 --- reflect-slideモード  
-F5 --- rainbowモード
+F5 --- rainbowモード  
 F6 --- chaos-rainbowモード
 
 gifでお手軽VJ
