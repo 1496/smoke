@@ -33,6 +33,6 @@ F1 --- ノーマル
 F2 --- smokeモード  
 F3 --- reflectモード  
 F4 --- reflect-slideモード  
-F5 --- rainbowモード
-F6 --- chaos-rainbowモード
+F5 --- rainbowモード  
+F6 --- chaos-rainbowモード  
 (ファンクションキーにショートカットが割り当てられいる場合は、OFFにしてください)
