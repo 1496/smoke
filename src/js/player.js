@@ -93,11 +93,25 @@ G.modeSwich = {
     },
     F5:function(type)
     {
-        log('F5');
+        /*rainbow mode*/
+        G.makeImagePass(type);
+        idx++;
+        var $target = $('<div class="layer F5"></div>');
+        $target.css({'background-image':'url(' + image + '?'+ idx+'),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
+        // $target.css({'background-image':'url(' + image + '?'+ idx+')'});
+        $player.children(0).remove();
+        $player.append($target);
     },
     F6:function(type)
     {
-        log('F6');
+        /*rainbow-dark mode*/
+        G.makeImagePass(type);
+        idx++;
+        var $target = $('<div class="layer F6"></div>');
+        $target.css({'background-image':'url(' + image + '?'+ idx+'),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
+        // $target.css({'background-image':'url(' + image + '?'+ idx+')'});
+        $player.children(0).remove();
+        $player.append($target);
     },
     F7:function(type)
     {
