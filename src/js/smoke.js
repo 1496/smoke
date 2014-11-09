@@ -1,10 +1,16 @@
-var directory = '0';  
-var mode = 'F1'; 
+var _DATA_ = {};
+
 
 
 (function(window, $) {
     var G = {};
     var widnwoHeight = 0;
+
+    //set default data
+    _DATA_.mode = 'mode1';
+    _DATA_.directory = 'F1';
+    _DATA_.nowPlayGif = 'gif/F1/a.gif';
+    _DATA_.nowColorMode = 'up';
 
     G.init = function()
     {

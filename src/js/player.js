@@ -4,7 +4,6 @@
     var $player = null;
     var $layer = null;
     var pass = 'gif/';
-    var effectClass = 'F1';
     var image = "";
     var keyArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
@@ -13,9 +12,9 @@
         $player = $('.player');
     };
 
-    G.makeImagePass =function(type)
+    G.makeImagePass =function(key)
     {
-        image = pass + directory + '/' + type + '.gif';
+        
     };
 
 
@@ -28,29 +27,55 @@
 effectsの設定
 =================================*/
 
-G.modeSwich = {
-    init:function()
+G.swichGIF = {
+    init:function(key)
     {
-        log('ok');
+        
     },
-    F1:function(type)
+    changeEffect:function()
+    {
+        $('.layer:last').addClass('fadeIn');
+    },
+    changeImagePass:function(key)
+    {
+        image = pass + _DATA_.directory + '/' + key + '.gif';
+    },
+    mode1:function(key)
     {
         //ノーマルエフェクト
-        G.makeImagePass(type);
         idx++;
-        var $target = $('<div class="layer F1"></div>');
-        $target.css({'background-image':'url(' + image + '?'+ idx+')'});
+        var $target = $('<div class="layer '+_DATA_.mode+'"></div>');
+        $target.css({'background-image':'url(' + image +')' + G.colorModeCss[_DATA_.nowColorMode]})
+        .removeClass('up').removeClass('left').removeClass('down').removeClass('right')
+        .addClass(_DATA_.nowColorMode);
+
 
         $player.children(0).remove();
+
         $player.append($target);
     },
-    F2:function(type)
+    mode2:function(key)
+    {
+        //ノーマルエフェクト
+        idx++;
+        var $target = $('<div class="layer '+_DATA_.mode+'"></div>');
+        $target.css({'background-image':'url(' + image + ')' + G.colorModeCss[_DATA_.nowColorMode]})
+        .removeClass('up').removeClass('left').removeClass('down').removeClass('right')
+        .addClass(_DATA_.nowColorMode);
+
+        $player.children(0).css({opacity:0}).animate({top:1},4000,function(){
+            $(this).remove();
+        });
+
+        $player.prepend($target);
+    },
+    mode3:function(key)
     {
         //smoke
-        G.makeImagePass(type);
-
-        var $target = $('<div class="layer F2"></div>');
-        $target.css({'background-image':'url(' + image + ')'});
+        var $target = $('<div class="layer '+_DATA_.mode+'"></div>');
+        $target.css({'background-image':'url(' + image + ')' + G.colorModeCss[_DATA_.nowColorMode]})
+        .removeClass('up').removeClass('left').removeClass('down').removeClass('right')
+        .addClass(_DATA_.nowColorMode);
 
         $player.children(0).css({opacity:0}).animate({top:1},4000,function(){
             $(this).remove();
@@ -59,24 +84,27 @@ G.modeSwich = {
         $player.prepend($target);
 
     },
-    F3:function(type)
+    mode4:function(key)
     {
         //refrect-smiple
-        G.makeImagePass(type);
-        var $target = $('<div class="layer F3"></div>');
-        $target.css({'background-image':'url(' + image + ')'});
+        var $target = $('<div class="layer '+_DATA_.mode+'"></div>');
+        $target.css({'background-image':'url(' + image + ')' + G.colorModeCss[_DATA_.nowColorMode]})
+        .removeClass('up').removeClass('left').removeClass('down').removeClass('right')
+        .addClass(_DATA_.nowColorMode);
 
         $player.append($target);
         $('.layer:first').remove();
 
     },
-    F4:function(type)
+    mode5:function(key)
     {
         //refrect-slide
-        G.makeImagePass(type);
-        var $target = $('<div class="layer F4"></div>');
+        var $target = $('<div class="layer '+_DATA_.mode+'"></div>');
 
-        $target.css({'background-image':'url(' + image + ')'});
+        $target.css({'background-image':'url(' + image + ')' + G.colorModeCss[_DATA_.nowColorMode]})
+        .removeClass('up').removeClass('left').removeClass('down').removeClass('right')
+        .addClass(_DATA_.nowColorMode);
+
         setTimeout(function(){
             $target.css({width:'50%','margin-left': '0%'});
         },50);
@@ -84,64 +112,93 @@ G.modeSwich = {
         setTimeout(function(){
             $('.layer:first').animate({top:1},0,function(){
                 $(this).remove();
-                log();
             });
         },1000)
-
-
         $player.append($target);
     },
-    F5:function(type)
+    mode6:function(key)
     {
-        /*rainbow mode*/
-        G.makeImagePass(type);
-        idx++;
-        var $target = $('<div class="layer F5"></div>');
-        $target.css({'background-image':'url(' + image + '?'+ idx+'),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
-        // $target.css({'background-image':'url(' + image + '?'+ idx+')'});
-        $player.children(0).remove();
-        $player.append($target);
+        return false;
     },
-    F6:function(type)
+    mode7:function(key)
     {
-        /*rainbow-dark mode*/
-        G.makeImagePass(type);
-        idx++;
-        var $target = $('<div class="layer F6"></div>');
-        $target.css({'background-image':'url(' + image + '?'+ idx+'),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
-        // $target.css({'background-image':'url(' + image + '?'+ idx+')'});
-        $player.children(0).remove();
-        $player.append($target);
+        return false;
     },
-    F7:function(type)
+    mode8:function(key)
     {
-        log('F7');
+        return false;
     },
-    F8:function(type)
+    mode9:function(key)
     {
-        log('F8');
-    },
-    F9:function(type)
-    {
-        log('F9');
-    },
-    F10:function(type)
-    {
-        log('F10');
-    },
-    F11:function(type)
-    {
-        log('F11');
-    },
-    F12:function(type)
-    {
-        log('F12');
+        return false;
     }
 }
 
+// G.changeColor = {
+//     up:function(key)
+//     {
+//         //normalColor
+//         var $target = $('.layer:first');
 
+//         G.changeColor['removeClass']($target);
 
+//         $target.addClass(key)
+//         .css({'background-image':'url(' + image + ')'});
+//     },
+//     left:function(key)
+//     {
+//         //rainbow
+//         var $target = $('.layer:first');
 
+//         G.changeColor['removeClass']($target);
+
+//         $target.addClass(key)
+//         .css({'background-image':'url(' + image + '),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
+//     },
+//     down:function(key)
+//     {
+//         //chaos
+//         var $target = $('.layer:first');
+
+//         G.changeColor['removeClass']($target);
+
+//         $target.addClass(key)
+//         .css({'background-image':'url(' + image + '),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
+//     },
+//     right:function(key)
+//     {
+//         //????
+//         log(key);
+//     },
+//     removeClass:function($dom)
+//     {
+//         $dom.removeClass('up').removeClass('left').removeClass('down').removeClass('right');
+//     }
+
+// };
+
+G.swichColor = function(key)
+{
+    /*
+    虹色系はグラデーションのCSSをbackground-imageに直接上書きする必要があるため
+    CSSをかける際にはaddClssと併用。
+    */
+    _DATA_.nowColorMode = key;
+    var $target = $('.layer:first');
+    $target.removeClass('up').removeClass('left').removeClass('down').removeClass('right');
+    $target.addClass(key).css({'background-image':'url(' + image + ')' + G.colorModeCss[key]});
+}
+
+G.colorModeCss = {
+        //ノーマル
+        up:'',
+        //レインボー
+        left:',linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)',
+        //カオス
+        down:',linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)',
+        //半透明
+        right:''
+};
 
 
 
