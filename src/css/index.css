@@ -91,22 +91,23 @@ normal
 	background-blend-mode: normal;
 }
 /*---------------------------------------
-rainbow mode
-*/
-.player .layer.left{
-	background-blend-mode: hard-light;
-}
-/*---------------------------------------
 chaos
 */
-.player .layer.down{
+.player .layer.left{
 	background-blend-mode: difference;
+	
+}
+/*---------------------------------------
+rainbow mode
+*/
+.player .layer.down{
+	background-blend-mode: hard-light;
 }
 /*---------------------------------------
 ????
 */
 .player .layer.right{
-
+	-webkit-filter: grayscale(100%);
 }
 
 

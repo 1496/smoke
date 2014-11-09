@@ -182,6 +182,7 @@ G.swichColor = function(key)
     /*
     虹色系はグラデーションのCSSをbackground-imageに直接上書きする必要があるため
     CSSをかける際にはaddClssと併用。
+    ちなみにここはアローキーを押した時にも切り替わるためのイベントです。
     */
     _DATA_.nowColorMode = key;
     var $target = $('.layer:first');
