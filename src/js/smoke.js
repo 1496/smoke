@@ -22,7 +22,7 @@ var _DATA_ = {};
     G.setHeight =function()
     {
         widnwoHeight = $(window).height();
-        $('.player').css({height:widnwoHeight});
+        $('.player,.effectsLayer').css({height:widnwoHeight});
     };
 
 

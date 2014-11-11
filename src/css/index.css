@@ -5,6 +5,25 @@ body{
 	overflow: hidden;
 	font-family:Helvetica, Arial,'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
 }
+
+.effectsLayer{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.effectsLayer.black{
+	transition: all .2s cubic-bezier(0.000, 0.715, 0.105, 1.040);
+	background: #000;
+}
+.effectsLayer.white{
+	transition: all .1s ease-out;
+	background: #fff;
+}
+
+
 .player{
 	width: 100%;
 	/*background-image: url(../../gif/0/c.gif);*/

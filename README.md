@@ -23,31 +23,32 @@ gifでお手軽VJ
 ##操作方法
 
 ###GIFアニメ切り替え
-a~zキー
+a~z key
 
 ###GIFアニメフォルダの切り替え
 ファンクションキーにより切り替える  
-F1~F12キー
+F1~F12 key
 
 ###エフェクトモードの切り替え  
 テンキーにより切り替える  
-1キー --- ノーマル  
-2キー --- クロスフェードモード  
-3キー --- smokeモード  
-4キー --- reflectモード    
-5キー --- reflectモード   
+1key --- normal MODE  
+2key --- crossFade MODE  
+3key --- smoke MODE  
+4key --- reflect MODE    
+5key --- reflect-slide MODE   
 (ファンクションキーにショートカットが割り当てられいる場合は、OFFにしてください)  
 
 ###カラーモードの切り替え
-allowキーにより切り替える  
-↑(upキー)    --- ノーマル  
-←(leftキー)  --- chaos-rainbow  
-↓(downキー)  --- rainbow  
-→(rightキー) --- 白黒
+allowkeyにより切り替える  
+↑(up key)    --- normal  
+←(left key)  --- chaos-rainbow  
+↓(down key)  --- rainbow  
+→(right key) --- monochrome  
 
 
-
-
+###Flash & Black
+space key --- Flash   
+enter key --- Black
 
 
 

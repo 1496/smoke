@@ -3,6 +3,7 @@
     var idx = '0';
     var $player = null;
     var $layer = null;
+    var $effectsLayer = null;
     var pass = 'gif/';
     var image = "";
     var keyArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -10,6 +11,7 @@
     G.init = function()
     {
         $player = $('.player');
+        $effectsLayer = $('.effectsLayer');
     };
 
     G.makeImagePass =function(key)
@@ -23,9 +25,11 @@
 
 
 
-/*=================================
-effectsの設定
-=================================*/
+/*----------------------------------------
+GIFの再生の設定
+再生するときに今設定されている
+再生モードによって再生が行われる
+----------------------------------------*/
 
 G.swichGIF = {
     init:function(key)
@@ -134,49 +138,10 @@ G.swichGIF = {
     }
 }
 
-// G.changeColor = {
-//     up:function(key)
-//     {
-//         //normalColor
-//         var $target = $('.layer:first');
 
-//         G.changeColor['removeClass']($target);
-
-//         $target.addClass(key)
-//         .css({'background-image':'url(' + image + ')'});
-//     },
-//     left:function(key)
-//     {
-//         //rainbow
-//         var $target = $('.layer:first');
-
-//         G.changeColor['removeClass']($target);
-
-//         $target.addClass(key)
-//         .css({'background-image':'url(' + image + '),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
-//     },
-//     down:function(key)
-//     {
-//         //chaos
-//         var $target = $('.layer:first');
-
-//         G.changeColor['removeClass']($target);
-
-//         $target.addClass(key)
-//         .css({'background-image':'url(' + image + '),linear-gradient(limegreen,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,coral,transparent)'});
-//     },
-//     right:function(key)
-//     {
-//         //????
-//         log(key);
-//     },
-//     removeClass:function($dom)
-//     {
-//         $dom.removeClass('up').removeClass('left').removeClass('down').removeClass('right');
-//     }
-
-// };
-
+/*---------------------------------------------
+カラーの切り替え
+---------------------------------------------*/
 G.swichColor = function(key)
 {
     /*
@@ -200,6 +165,47 @@ G.colorModeCss = {
         //半透明
         right:''
 };
+
+G.swichColor = function(key)
+{
+    /*
+    虹色系はグラデーションのCSSをbackground-imageに直接上書きする必要があるため
+    CSSをかける際にはaddClssと併用。
+    ちなみにここはアローキーを押した時にも切り替わるためのイベントです。
+    */
+    _DATA_.nowColorMode = key;
+    var $target = $('.layer:first');
+    $target.removeClass('up').removeClass('left').removeClass('down').removeClass('right');
+    $target.addClass(key).css({'background-image':'url(' + image + ')' + G.colorModeCss[key]});
+}
+
+/*---------------------------------------------
+ブラックアウト&フラッシュ
+---------------------------------------------*/
+
+G.fullScreenEffects = {
+    space:function(key)
+    {
+        $effectsLayer.addClass('white');
+        setTimeout(function(){
+            $effectsLayer.removeClass('white');
+        },100)
+    },
+    enter:function(key)
+    {
+        $effectsLayer.addClass('black');
+        setTimeout(function(){
+            $effectsLayer.removeClass('black');
+        },150);
+    }
+};
+
+
+
+
+
+
+
 
 
 
