@@ -41,3 +41,50 @@ body{
 }
 
 
+.fucntionKeyArea{
+	padding: 2%;
+}
+.fucntionKeyArea div{
+	float: left;
+	width: 7.7%;
+	margin:0.2%;
+	border:1px solid #ccc;
+	padding-top: .5%;
+	padding-bottom: .5%;
+	text-align: center;
+	color:#fff;
+	font-size:20px;
+	cursor: pointer;
+}
+.fucntionKeyArea div:hover{
+	background: #999;
+}
+.fucntionKeyArea div.active{
+	color: #000;
+	background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

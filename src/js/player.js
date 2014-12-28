@@ -6,8 +6,8 @@
     var $effectsLayer = null;
     var pass = 'gif/';
     var image = "";
-    var keyArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-
+    var keyCodeArray = [81,87,69,82,84,89,85,73,79,80,65,83,68,70,71,72,74,75,76,90,88,67,86,66,78,77];
+    
     G.init = function()
     {
         $player = $('.player');
@@ -19,7 +19,28 @@
         
     };
 
+    G.autoPlay = function()
+    {
+        var i = 0;
+        setInterval(changeGif,2000);
 
+
+
+        function changeGif()
+        {
+            var e = $.Event('keydown', { keyCode: keyCodeArray[i]});
+            $(window).trigger(e);
+
+            if( keyCodeArray.length - 1 <= i )
+            {
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+        };
+    };
 
 
 
