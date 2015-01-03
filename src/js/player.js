@@ -8,6 +8,7 @@
     var image = "";
     var keyCodeArray = [81,87,69,82,84,89,85,73,79,80,65,83,68,70,71,72,74,75,76,90,88,67,86,66,78,77];
     G.playMode = 'normal';
+    G.autoPlayInterval = 4200;
     
     G.init = function()
     {
@@ -20,14 +21,16 @@
         
     };
 
+/*----------------------------------------
+オートプレイ
+----------------------------------------*/
     G.autoPlay = function()
     {
         var i = 0;
-        var time = 0;
 
         if(G.playMode == 'auto')
         {
-            setTimeout(changeGif,time);
+            setTimeout(changeGif,0);
         }
 
 
@@ -35,7 +38,6 @@
         function changeGif()
         {
             if(G.playMode == 'normal') return false;
-            time = 2000;
             var e = $.Event('keydown', { keyCode: keyCodeArray[i]});
             $(window).trigger(e);
 
@@ -48,7 +50,7 @@
                 i++;
             }
 
-            setTimeout(changeGif,time);
+            setTimeout(changeGif,G.autoPlayInterval);
             
         };
     };
@@ -214,7 +216,6 @@ G.swichColor = function(key)
 /*---------------------------------------------
 ブラックアウト&フラッシュ
 ---------------------------------------------*/
-
 G.fullScreenEffects = {
     space:function(key)
     {
@@ -228,7 +229,7 @@ G.fullScreenEffects = {
         $effectsLayer.addClass('black');
         setTimeout(function(){
             $effectsLayer.removeClass('black');
-        },150);
+        },50);
     }
 };
 
