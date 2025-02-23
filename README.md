@@ -1,6 +1,9 @@
 smoke  
 gifでお手軽VJ
-![代替テキスト]([https://example.com/image.png](https://www.ondo-japan.com/blog/wp-content/uploads/2016/06/blog_photo1.jpg))
+![blog_photo1](https://github.com/user-attachments/assets/62a3c35a-a3ac-417d-b46c-ecdb6f5208ab)
+
+
+
 ## 使い方 キーボードに好きなGIFを割り当てて、切り替えができる。  
 音楽に合わせるとVJの用な感じのことができるかもしれない。
 
